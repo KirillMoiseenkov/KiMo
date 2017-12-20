@@ -1,0 +1,57 @@
+<list>
+  <Orders>
+    <Name>Рулет с изюмом</Name>
+    <Count>150 г</Count>
+    <Price>30 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Рис отварной с маслом</Name>
+    <Count>170 г</Count>
+    <Price>16 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Пирог с повидлом</Name>
+    <Count>120 г</Count>
+    <Price>26 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Суп болгарский вегетарианский</Name>
+    <Count>250 г</Count>
+    <Price>21 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Свинина запеченная&quot;По-гусарски&quot;</Name>
+    <Count>80 г</Count>
+    <Price>68 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Пирог с яблоками</Name>
+    <Count>60 г</Count>
+    <Price>13 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Макароны отварные</Name>
+    <Count>340 г</Count>
+    <Price>30 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Печень по королевски</Name>
+    <Count>300 г</Count>
+    <Price>108 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Суп куриный с грибами</Name>
+    <Count>500 г</Count>
+    <Price>68 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Рыбное филе с помидоркой</Name>
+    <Count>80 г</Count>
+    <Price>54 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Салат Изюминка</Name>
+    <Count>300 г</Count>
+    <Price>105 руб</Price>
+  </Orders>
+</list>

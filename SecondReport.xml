@@ -1,0 +1,36 @@
+<list>
+  <Orders>
+    <Name>Пупкин А.</Name>
+    <product>Салат Изюминка</product>
+    <product>Печень по королевски</product>
+    <product>Рис отварной с маслом</product>
+    <product>Рулет с изюмом</product>
+    <Price>120 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Сухожилов Л.</Name>
+    <product>Салат Изюминка</product>
+    <product>Суп куриный с грибами</product>
+    <product>Печень по королевски</product>
+    <product>Макароны отварные</product>
+    <product>Пирог с повидлом</product>
+    <Price>151 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Кривенко С.</Name>
+    <product>Салат Изюминка</product>
+    <product>Суп куриный с грибами</product>
+    <product>Свинина запеченная&quot;По-гусарски&quot;</product>
+    <product>Макароны отварные</product>
+    <product>Пирог с яблоками</product>
+    <Price>165 руб</Price>
+  </Orders>
+  <Orders>
+    <Name>Гайченов П.</Name>
+    <product>Суп болгарский вегетарианский</product>
+    <product>Рыбное филе с помидоркой</product>
+    <product>Рулет с изюмом</product>
+    <product>Пирог с повидлом</product>
+    <Price>103 руб</Price>
+  </Orders>
+</list>

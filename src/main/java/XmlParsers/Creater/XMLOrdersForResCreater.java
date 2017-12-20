@@ -1,0 +1,29 @@
+package XmlParsers.Creater;
+
+import Models.AfterCalculate.OrderForRes;
+import com.thoughtworks.xstream.XStream;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+public class XMLOrdersForResCreater {
+
+
+public void Parsing(List <OrderForRes> orderForResList)  {
+
+
+    XStream xstream = new XStream();
+    xstream.processAnnotations(OrderForRes.class);
+    xstream.alias("Orders", OrderForRes.class);
+    try {
+        Files.write(Paths.get("SecondReport.xml"), xstream.toXML(orderForResList).getBytes());
+    } catch (IOException e) {
+        System.out.println("problem with file" + e);
+    }
+
+}
+
+}
+

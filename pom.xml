@@ -9,4 +9,21 @@
     <version>1.0-SNAPSHOT</version>
 
 
+
+        <dependencies>
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>1.10.3</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/xstream/xstream -->
+            <!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>1.4.8</version>
+            </dependency>
+        </dependencies>
+
 </project>
