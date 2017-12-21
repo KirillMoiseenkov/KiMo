@@ -8,10 +8,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class XMLOrdersForResCreater {
+public class XMLOrdersForResCreater implements IXMLCreater<OrderForRes>{
 
 
-public void Parsing(List <OrderForRes> orderForResList)  {
+public void parsing(List <OrderForRes> orderForResList)  {
 
 
     XStream xstream = new XStream();
@@ -24,6 +24,7 @@ public void Parsing(List <OrderForRes> orderForResList)  {
     }
 
 }
+
 
 }
 

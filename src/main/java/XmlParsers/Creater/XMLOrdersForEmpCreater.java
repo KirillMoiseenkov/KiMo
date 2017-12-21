@@ -9,9 +9,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class XMLOrdersForEmpCreater {
+public class XMLOrdersForEmpCreater implements IXMLCreater<OrderForEmployee> {
 
-    public void Parsing(List<OrderForEmployee> orderForEmployees)  {
+    public void parsing(List<OrderForEmployee> orderForEmployees)  {
 
 
         XStream xstream = new XStream();

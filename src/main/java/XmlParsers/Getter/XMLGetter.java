@@ -26,7 +26,7 @@ public  abstract  class XMLGetter <T extends BaseModel>{
 
     public XMLGetter(String XMLURL) {
 
-        inputFile = new File(XMLURL);
+        inputFile = new File(XMLURL); //(XMLURL);
 
         dbFactory = DocumentBuilderFactory.newInstance();
 

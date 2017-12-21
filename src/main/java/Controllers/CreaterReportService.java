@@ -67,11 +67,11 @@ public class CreaterReportService {
 
     public void createFirstReport(){
         XMLOrdersForEmpCreater xmlOrdersForEmpCreater = new XMLOrdersForEmpCreater();
-        xmlOrdersForEmpCreater.Parsing(orderForEmployeeList);
+        xmlOrdersForEmpCreater.parsing(orderForEmployeeList);
     }
 
         public void createSecondReport(){
             XMLOrdersForResCreater xmlOrdersForResCreater = new XMLOrdersForResCreater();
-            xmlOrdersForResCreater.Parsing(orderForResList);
+            xmlOrdersForResCreater.parsing(orderForResList);
         }
 }
