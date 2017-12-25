@@ -23,9 +23,11 @@ public class URLPareser {
         try {
             reader = new JsonReader(new FileReader("routes.json"));
             Gson gson = new Gson();
-            Url[] taskAr = gson.fromJson(reader, Url[].class);
-            items = Arrays.asList(taskAr);
-            urls = items.stream().map(i -> i.getURL()).collect(Collectors.toList());
+            Url[] urls = gson.fromJson(reader, Url[].class);
+            items = Arrays.asList(urls);
+
+            this.urls = items.stream().map(i -> i.getURL()).collect(Collectors.toList());
+
         } catch (FileNotFoundException e) {
             System.out.println("problem with file::" + e);
         }
