@@ -41,9 +41,8 @@ public class CreaterReportService {
             order.getProducts().forEach(product ->
                     {
                         orderForRes.setPrice(String.valueOf(Integer.parseInt(orderForRes.getPrice()) + itemOfMenuDAOImp.getByName(product).getPrice()));
-                        if (countProducts.containsKey(product))
-                            countProducts.put(product, countProducts.get(product) + 1);
-                        else countProducts.put(product, 1);
+                        countProducts.merge(product, 1, (a, b) -> a + b);
+
                     }
             );
             orderForRes.setPrice(orderForRes.getPrice() + " руб");
