@@ -41,7 +41,7 @@ public class CreaterReportService {
             order.getProducts().forEach(product ->
                     {
                         orderForRes.setPrice(String.valueOf(Integer.parseInt(orderForRes.getPrice()) + itemOfMenuDAOImp.getByName(product).getPrice()));
-                        countProducts.merge(product, 1, (a, b) -> a + b);
+                        countProducts.merge(product, 1, (last, iterator) -> last + iterator);
 
                     }
             );
