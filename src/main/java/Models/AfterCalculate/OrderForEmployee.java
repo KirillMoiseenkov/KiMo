@@ -2,12 +2,6 @@ package Models.AfterCalculate;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.List;
-
 @XStreamAlias("Orders")
 public class OrderForEmployee {
 
@@ -21,13 +15,12 @@ public class OrderForEmployee {
     private String price;
 
 
+    public OrderForEmployee() {
 
-     public OrderForEmployee(){
+        weight = "0";
+        price = "0";
 
-         weight = "0";
-         price = "0";
-
-     }
+    }
 
     public String getName() {
         return name;

@@ -4,9 +4,9 @@ import Models.BeforeCalculate.Order;
 
 import java.util.List;
 
-public interface IDAOOrders extends IDAO <Order> {
+public interface IDAOOrders extends IDAO<Order> {
 
-        List<Order> getByProduct(String product);
+    List<Order> getByProduct(String product);
 
 
 }

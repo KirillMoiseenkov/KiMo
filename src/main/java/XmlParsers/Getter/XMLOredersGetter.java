@@ -1,20 +1,19 @@
 package XmlParsers.Getter;
+
 import Models.BeforeCalculate.Order;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
+
 import java.util.List;
 
-public class XMLOredersGetter extends XMLGetter<Order>{
+public class XMLOredersGetter extends XMLGetter<Order> {
 
-    public XMLOredersGetter(String XMLURL){
-       super(XMLURL);
-   }
+    public XMLOredersGetter(String XMLURL) {
+        super(XMLURL);
+    }
 
-    public List<Order> parse(String nameCollection, List<String> attr){
+    public List<Order> parse(String nameCollection, List<String> attr) {
 
         this.nameCollection = nameCollection;
 
@@ -27,12 +26,10 @@ public class XMLOredersGetter extends XMLGetter<Order>{
 
                 Element eElement = (Element) nNode;
                 order.setName(eElement.getElementsByTagName(attr.get(0)).item(0).getTextContent());
-                NodeList nodeList =  eElement.getElementsByTagName(attr.get(1));
-                for (int i = 0; i< nodeList.getLength();i++)
-                {
+                NodeList nodeList = eElement.getElementsByTagName(attr.get(1));
+                for (int i = 0; i < nodeList.getLength(); i++) {
                     Node node = nodeList.item(i);
-                    if (node.getNodeType() == Node.ELEMENT_NODE)
-                    {
+                    if (node.getNodeType() == Node.ELEMENT_NODE) {
                         Element element = (Element) nNode;
                         order.addToProducts(eElement
                                 .getElementsByTagName(attr.get(1))

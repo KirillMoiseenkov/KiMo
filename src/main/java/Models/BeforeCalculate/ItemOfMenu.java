@@ -2,9 +2,6 @@ package Models.BeforeCalculate;
 
 import Models.BaseModel;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
 public class ItemOfMenu extends BaseModel {
 
 

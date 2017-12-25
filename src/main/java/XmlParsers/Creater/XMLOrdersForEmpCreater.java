@@ -11,7 +11,7 @@ import java.util.List;
 
 public class XMLOrdersForEmpCreater implements IXMLCreater<OrderForEmployee> {
 
-    public void parsing(List<OrderForEmployee> orderForEmployees)  {
+    public void parsing(List<OrderForEmployee> orderForEmployees) {
 
 
         XStream xstream = new XStream();
