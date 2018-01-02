@@ -1,8 +1,8 @@
 package DAO;
 
-import DAO.Interface.IDAOItemOfMenu;
-import Models.BeforeCalculate.ItemOfMenu;
-import XmlParsers.Getter.XMLMenuGetter;
+import DAO.interfaces.IDAOItemOfMenu;
+import models.beforecalculate.ItemOfMenu;
+import xmlparsers.getter.XMLMenuGetter;
 
 import java.util.ArrayList;
 import java.util.List;

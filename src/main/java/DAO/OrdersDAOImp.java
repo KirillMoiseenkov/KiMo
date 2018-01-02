@@ -1,8 +1,8 @@
 package DAO;
 
-import DAO.Interface.IDAOOrders;
-import Models.BeforeCalculate.Order;
-import XmlParsers.Getter.XMLOredersGetter;
+import DAO.interfaces.IDAOOrders;
+import models.beforecalculate.Order;
+import xmlparsers.getter.XMLOredersGetter;
 
 import java.util.ArrayList;
 import java.util.List;
