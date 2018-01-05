@@ -1,4 +1,4 @@
-package сontrollers.marhaling;
+/*package сontrollers.marhaling;
 
 import DAO.ItemOfMenuDAOImp;
 import DAO.OrdersDAOImp;
@@ -67,4 +67,4 @@ public class MarshallingService {
         XMLOrdersForResCreater xmlOrdersForResCreater = new XMLOrdersForResCreater();
         xmlOrdersForResCreater.parsing(orderForResList);
     }
-}
+}*/

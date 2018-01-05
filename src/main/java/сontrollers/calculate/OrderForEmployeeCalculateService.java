@@ -5,6 +5,7 @@ import DAO.OrdersDAOImp;
 import DAO.interfaces.IDAO;
 import models.aftercalculate.OrderForEmployee;
 import models.beforecalculate.Order;
+import org.apache.log4j.Logger;
 import сontrollers.interfaces.calculate.ICalculateTargetService;
 import сontrollers.interfaces.calculate.ICalculateService;
 
@@ -19,6 +20,7 @@ public class OrderForEmployeeCalculateService implements ICalculateService<IDAO>
     private ItemOfMenuDAOImp itemOfMenuDAOImp;
     private Map<String, Integer> countProducts;
     private List<OrderForEmployee> orderForEmployeeList;
+    private static final Logger log = Logger.getLogger(OrderForEmployeeCalculateService.class);
 
 
     @Override
@@ -49,9 +51,15 @@ public class OrderForEmployeeCalculateService implements ICalculateService<IDAO>
             orderForEmployee.setName(Name);
 
             orderForEmployeeList.add(orderForEmployee);
+            if(orderForEmployeeList.size() == 0){
+                log.warn("item size equals 0, something go wrong");
+
+            }
+
+
         });
 
-
+        log.info("Calculate succes");
         return orderForEmployeeList;
     }
 }

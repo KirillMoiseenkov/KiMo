@@ -6,11 +6,12 @@ import сontrollers.interfaces.unmarhaling.IDefoultUnmarshalingService;
 public class MenuUnmarshallingUnmarshalingService implements IDefoultUnmarshalingService<ItemOfMenuDAOImp> {
 
     private ItemOfMenuDAOImp itemOfMenuDAOImp;
+    private final String nameCollection = "menu";
 
 
     public MenuUnmarshallingUnmarshalingService(String URLMenu){
 
-        itemOfMenuDAOImp = new ItemOfMenuDAOImp("menu", URLMenu);
+        itemOfMenuDAOImp = new ItemOfMenuDAOImp(nameCollection, URLMenu);
 
     }
 

@@ -5,11 +5,12 @@ import сontrollers.interfaces.unmarhaling.IDefoultUnmarshalingService;
 
 public class OrderUnmarshalingUnmarshalingService implements IDefoultUnmarshalingService<OrdersDAOImp> {
 
-    OrdersDAOImp ordersDAOImp;
+    private OrdersDAOImp ordersDAOImp;
+    private final String nameCollection = "employee";
 
     public OrderUnmarshalingUnmarshalingService(String URLMenu){
 
-        ordersDAOImp = new OrdersDAOImp("employee", URLMenu);
+        ordersDAOImp = new OrdersDAOImp(nameCollection, URLMenu);
 
     }
 

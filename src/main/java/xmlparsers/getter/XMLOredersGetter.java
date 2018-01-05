@@ -1,6 +1,7 @@
 package xmlparsers.getter;
 
 import models.beforecalculate.Order;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -9,8 +10,13 @@ import java.util.List;
 
 public class XMLOredersGetter extends XMLGetter<Order> {
 
+    private static final Logger log = Logger.getLogger(XMLOredersGetter.class);
+
+
     public XMLOredersGetter(String XMLURL) {
         super(XMLURL);
+        log.debug("File connected : " + XMLURL);
+
     }
 
     public List<Order> parse(String nameCollection, List<String> attr) {
@@ -39,8 +45,11 @@ public class XMLOredersGetter extends XMLGetter<Order> {
                 }
             }
             items.add(order);
+            if(items.size() == 0)
+                log.warn("size of elements equals zero");
         }
-        System.out.println("Orders succes parse");
+        log.debug("file have been ummarhaled");
+
         return items;
 
     }

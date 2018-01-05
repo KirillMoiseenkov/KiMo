@@ -1,15 +1,20 @@
 package xmlparsers.getter;
 
 import models.beforecalculate.ItemOfMenu;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class XMLMenuGetter extends XMLGetter<ItemOfMenu> {
 
+    private static final Logger log = Logger.getLogger(XMLMenuGetter.class);
+
     public XMLMenuGetter(String XMLURL) {
         super(XMLURL);
+        log.debug("File connected : " + XMLURL);
     }
 
     public List<ItemOfMenu> parse(String nameCollection, List<String> attr) {
@@ -36,9 +41,12 @@ public class XMLMenuGetter extends XMLGetter<ItemOfMenu> {
 
                 this.items.add(itemOfMenu);
 
+                if(items.size() == 0)
+                    log.warn("size of elements equals zero");
+
             }
         }
-        System.out.println("Item succes parse");
+        log.debug("file have been ummarhaled");
         return this.items;
     }
 

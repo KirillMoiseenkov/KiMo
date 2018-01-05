@@ -2,14 +2,19 @@ package сontrollers.marhaling;
 
 import models.BaseModel;
 import models.aftercalculate.OrderForEmployee;
+import org.apache.log4j.Logger;
 import xmlparsers.creater.XMLOrdersForEmpCreater;
+import сontrollers.OrderForResCalculateService;
 import сontrollers.interfaces.marshaling.IDefoultMarshaling;
 
 import java.util.List;
 
 public class OrderForEmployeeMarhalingService implements IDefoultMarshaling{
 
-    List<OrderForEmployee> orderForEmployee;
+   private List<OrderForEmployee> orderForEmployee;
+   private static final Logger log = Logger.getLogger(OrderForEmployeeMarhalingService.class);
+   private final String fileName = "FirstReport.xml" ;
+   private final String itemName = "Orders";
 
 
 
@@ -19,14 +24,16 @@ public class OrderForEmployeeMarhalingService implements IDefoultMarshaling{
     public void setList(List list) {
 
         orderForEmployee = list;
-        orderForEmployee.forEach(orderForEmployee1 -> System.out.println(orderForEmployee1.toString()));
+
     }
 
     @Override
     public void execute() {
 
-        XMLOrdersForEmpCreater xmlOrdersForEmpCreater = new XMLOrdersForEmpCreater();
+
+        XMLOrdersForEmpCreater xmlOrdersForEmpCreater = new XMLOrdersForEmpCreater(fileName,itemName);
         xmlOrdersForEmpCreater.parsing(orderForEmployee);
+
 
 
     }
