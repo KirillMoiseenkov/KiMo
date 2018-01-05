@@ -15,7 +15,7 @@ public class XMLOredersGetter extends XMLGetter<Order> {
 
     public XMLOredersGetter(String XMLURL) {
         super(XMLURL);
-        log.debug("File connected : " + XMLURL);
+
 
     }
 
@@ -47,6 +47,7 @@ public class XMLOredersGetter extends XMLGetter<Order> {
             items.add(order);
             if(items.size() == 0)
                 log.warn("size of elements equals zero");
+
         }
         log.debug("file have been ummarhaled");
 

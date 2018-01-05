@@ -1,5 +1,6 @@
 import DAO.ItemOfMenuDAOImp;
 import DAO.OrdersDAOImp;
+
 import models.aftercalculate.OrderForEmployee;
 import models.aftercalculate.OrderForRes;
 import org.apache.log4j.Level;
@@ -12,26 +13,46 @@ import сontrollers.unmarshaling.MenuUnmarshallingUnmarshalingService;
 import сontrollers.calculate.OrderForEmployeeCalculateService;
 import сontrollers.unmarshaling.OrderUnmarshalingUnmarshalingService;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 
 public class Main {
 
     private static final Logger log = Logger.getLogger(Main.class);
+    private static Properties properties;
 
+    private static String Menu = "Menu";
+    private static String Orders = "Orders";
 
     public static void main(String[] args) throws IOException {
 
             log.info("start project");
 
+
+
+
+
         try
         {
+            properties = new Properties();
+            InputStream inputStream = Main.class.getResourceAsStream("routes.properties");
+            properties.load(inputStream);
 
 
             URLPareser urlPareser = new URLPareser();
 
-            MenuUnmarshallingUnmarshalingService menuUnmarshallingService = new MenuUnmarshallingUnmarshalingService(urlPareser.getUrls().get(0));
-            OrderUnmarshalingUnmarshalingService orderUnmarshalingService = new OrderUnmarshalingUnmarshalingService(urlPareser.getUrls().get(1));
+            MenuUnmarshallingUnmarshalingService menuUnmarshallingService = new MenuUnmarshallingUnmarshalingService(properties.getProperty(Menu));
+            OrderUnmarshalingUnmarshalingService orderUnmarshalingService = new OrderUnmarshalingUnmarshalingService(properties.getProperty(Orders));
+
+            OrderForEmployeeCalculateService orderForEmployeeCalculateService = new OrderForEmployeeCalculateService();
+            OrderForResCalculateService orderForResCalculateService = new OrderForResCalculateService();
+
+            OrderForEmployeeMarhalingService orderForEmployeeMarhalingService = new OrderForEmployeeMarhalingService();
+            OrderForResMarhalingService orderForResMarhalingService = new OrderForResMarhalingService();
+
 
             ItemOfMenuDAOImp itemOfMenuDAOImp;
             OrdersDAOImp ordersDAOImp;
@@ -39,8 +60,6 @@ public class Main {
             itemOfMenuDAOImp = menuUnmarshallingService.execute();
             ordersDAOImp = orderUnmarshalingService.execute();
 
-            OrderForEmployeeCalculateService orderForEmployeeCalculateService = new OrderForEmployeeCalculateService();
-            OrderForResCalculateService orderForResCalculateService = new OrderForResCalculateService();
 
             orderForEmployeeCalculateService.setDAO(itemOfMenuDAOImp, ordersDAOImp);
             orderForResCalculateService.setDAO(itemOfMenuDAOImp, ordersDAOImp);
@@ -49,8 +68,6 @@ public class Main {
             List<OrderForRes> orderForRes = orderForResCalculateService.exexute();
 
 
-            OrderForEmployeeMarhalingService orderForEmployeeMarhalingService = new OrderForEmployeeMarhalingService();
-            OrderForResMarhalingService orderForResMarhalingService = new OrderForResMarhalingService();
 
             orderForEmployeeMarhalingService.setList(orderForEmployees);
             orderForResMarhalingService.setList(orderForRes);
@@ -60,12 +77,12 @@ public class Main {
 
 
 
+
         } catch (NullPointerException e)
         {
-            System.out.println("NPE =  " + e);
+            log.error("NPE" + e);
         }
 
-        URLPareser urlPareser = new URLPareser();
 
 
 

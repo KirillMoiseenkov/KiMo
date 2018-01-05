@@ -14,7 +14,7 @@ public class XMLMenuGetter extends XMLGetter<ItemOfMenu> {
 
     public XMLMenuGetter(String XMLURL) {
         super(XMLURL);
-        log.debug("File connected : " + XMLURL);
+
     }
 
     public List<ItemOfMenu> parse(String nameCollection, List<String> attr) {

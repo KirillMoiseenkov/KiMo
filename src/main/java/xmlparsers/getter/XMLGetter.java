@@ -1,6 +1,7 @@
 package xmlparsers.getter;
 
 import models.BaseModel;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -24,6 +25,8 @@ public abstract class XMLGetter<T extends BaseModel> {
     protected String nameCollection;
     protected List<T> items = new ArrayList<>();
 
+    protected static final Logger log = Logger.getLogger(XMLGetter.class);
+
     public XMLGetter(String XMLURL) {
 
         inputFile = new File(XMLURL); //(XMLURL);
@@ -39,15 +42,15 @@ public abstract class XMLGetter<T extends BaseModel> {
         } catch (SAXException ignored) {
 
         } catch (ParserConfigurationException e) {
-            System.out.println("problem with parse or adress file" + e);
+           log.warn("problem with parse or adress file" + e);
 
         } catch (FileNotFoundException e)
         {
-            System.out.println("not found =  " + e);
+           log.warn("file not found");
 
         } catch (IOException e) {
 
-            e.printStackTrace();
+            log.error(e);
 
         }
     }
