@@ -4,7 +4,6 @@ import DAO.interfaces.IDAOOrders;
 import models.beforecalculate.Order;
 import xmlparsers.getter.XMLOredersGetter;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,20 +13,18 @@ public class OrdersDAOImp implements IDAOOrders {
     private XMLOredersGetter xmlOredersGetter;
 
 
-    public OrdersDAOImp(String nameCollection, String URL, List<String> attr) {
-        xmlOredersGetter = new XMLOredersGetter(URL);
-        orders = xmlOredersGetter.parse(nameCollection, attr);
+    @Override
+    public void setList(List<Order> items) {
+        orders = items;
     }
 
-    public OrdersDAOImp(String nameCollection, String URL) {
+    @Override
+    public void setListByParsing(String URL) {
         xmlOredersGetter = new XMLOredersGetter(URL);
+        orders = xmlOredersGetter.parse();
 
-
-        orders = xmlOredersGetter.parse(nameCollection, new ArrayList<String>() {{
-            add("name");
-            add("item");
-        }});
     }
+
 
     @Override
     public List<Order> getByProduct(String product) {

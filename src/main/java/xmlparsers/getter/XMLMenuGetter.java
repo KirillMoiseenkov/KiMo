@@ -11,14 +11,28 @@ import java.util.List;
 public class XMLMenuGetter extends XMLGetter<ItemOfMenu> {
 
     private static final Logger log = Logger.getLogger(XMLMenuGetter.class);
+    private  String nameCollection = "menu";
+    //private List<String> attr;
 
     public XMLMenuGetter(String XMLURL) {
         super(XMLURL);
 
+        attr = new ArrayList<String>() {{
+            add("name");
+            add("weight");
+            add("price");
+        }};
     }
 
-    public List<ItemOfMenu> parse(String nameCollection, List<String> attr) {
+    @Override
+    public void setProperties(String nameCollection, List<String> attr) {
         this.nameCollection = nameCollection;
+        this.attr = attr;
+    }
+
+
+    public List<ItemOfMenu> parse() {
+        //this.nameCollection = nameCollection;
         nList = doc.getElementsByTagName(nameCollection);
 
         for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -41,7 +55,7 @@ public class XMLMenuGetter extends XMLGetter<ItemOfMenu> {
 
                 this.items.add(itemOfMenu);
 
-                if(items.size() == 0)
+                if (items.size() == 0)
                     log.warn("size of elements equals zero");
 
             }

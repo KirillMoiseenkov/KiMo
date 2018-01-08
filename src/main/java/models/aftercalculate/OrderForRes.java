@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XStreamAlias("Orders")
-public class OrderForRes extends BaseModel{
+public class OrderForRes extends BaseModel {
 
     @XStreamAlias("Name")
     private String name;

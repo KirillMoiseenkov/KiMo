@@ -1,19 +1,16 @@
 import DAO.ItemOfMenuDAOImp;
 import DAO.OrdersDAOImp;
-
 import models.aftercalculate.OrderForEmployee;
 import models.aftercalculate.OrderForRes;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import routes.parsers.URLPareser;
 import сontrollers.OrderForResCalculateService;
-import сontrollers.marhaling.OrderForEmployeeMarhalingService;
-import сontrollers.marhaling.OrderForResMarhalingService;
-import сontrollers.unmarshaling.MenuUnmarshallingUnmarshalingService;
 import сontrollers.calculate.OrderForEmployeeCalculateService;
-import сontrollers.unmarshaling.OrderUnmarshalingUnmarshalingService;
+import сontrollers.marhalling.OrderForEmployeeMarhallingService;
+import сontrollers.marhalling.OrderForResMarhallingService;
+import сontrollers.unmarshalling.MenuUnmarshallingService;
+import сontrollers.unmarshalling.OrderUnmarshallingService;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -29,14 +26,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-            log.info("start project");
+        log.info("start project");
 
 
-
-
-
-        try
-        {
+        try {
             properties = new Properties();
             InputStream inputStream = Main.class.getResourceAsStream("routes.properties");
             properties.load(inputStream);
@@ -44,21 +37,21 @@ public class Main {
 
             URLPareser urlPareser = new URLPareser();
 
-            MenuUnmarshallingUnmarshalingService menuUnmarshallingService = new MenuUnmarshallingUnmarshalingService(properties.getProperty(Menu));
-            OrderUnmarshalingUnmarshalingService orderUnmarshalingService = new OrderUnmarshalingUnmarshalingService(properties.getProperty(Orders));
+            MenuUnmarshallingService menuUnmarshallingService = new MenuUnmarshallingService(properties.getProperty(Menu));
+            OrderUnmarshallingService orderUnmarshallingService = new OrderUnmarshallingService(properties.getProperty(Orders));
 
             OrderForEmployeeCalculateService orderForEmployeeCalculateService = new OrderForEmployeeCalculateService();
             OrderForResCalculateService orderForResCalculateService = new OrderForResCalculateService();
 
-            OrderForEmployeeMarhalingService orderForEmployeeMarhalingService = new OrderForEmployeeMarhalingService();
-            OrderForResMarhalingService orderForResMarhalingService = new OrderForResMarhalingService();
+            OrderForEmployeeMarhallingService orderForEmployeeMarhallingService = new OrderForEmployeeMarhallingService();
+            OrderForResMarhallingService orderForResMarhallingService = new OrderForResMarhallingService();
 
 
             ItemOfMenuDAOImp itemOfMenuDAOImp;
             OrdersDAOImp ordersDAOImp;
 
             itemOfMenuDAOImp = menuUnmarshallingService.execute();
-            ordersDAOImp = orderUnmarshalingService.execute();
+            ordersDAOImp = orderUnmarshallingService.execute();
 
 
             orderForEmployeeCalculateService.setDAO(itemOfMenuDAOImp, ordersDAOImp);
@@ -68,23 +61,16 @@ public class Main {
             List<OrderForRes> orderForRes = orderForResCalculateService.exexute();
 
 
+            orderForEmployeeMarhallingService.setList(orderForEmployees);
+            orderForResMarhallingService.setList(orderForRes);
 
-            orderForEmployeeMarhalingService.setList(orderForEmployees);
-            orderForResMarhalingService.setList(orderForRes);
-
-            orderForResMarhalingService.execute();
-            orderForEmployeeMarhalingService.execute();
-
+            orderForResMarhallingService.execute();
+            orderForEmployeeMarhallingService.execute();
 
 
-
-        } catch (NullPointerException e)
-        {
+        } catch (NullPointerException e) {
             log.error("NPE" + e);
         }
-
-
-
 
 
         log.info("project finihed");

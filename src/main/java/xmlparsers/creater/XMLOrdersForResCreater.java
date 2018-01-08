@@ -1,7 +1,7 @@
 package xmlparsers.creater;
 
-import models.aftercalculate.OrderForRes;
 import com.thoughtworks.xstream.XStream;
+import models.aftercalculate.OrderForRes;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -15,10 +15,11 @@ public class XMLOrdersForResCreater implements IXMLCreater<OrderForRes> {
     private String fileName;
     private String itemName;
 
-    public XMLOrdersForResCreater(String fileName, String itemName){
-        this.fileName =fileName;
+    public XMLOrdersForResCreater(String fileName, String itemName) {
+        this.fileName = fileName;
         this.itemName = itemName;
     }
+
     public void parsing(List<OrderForRes> orderForResList) {
 
 
@@ -29,7 +30,7 @@ public class XMLOrdersForResCreater implements IXMLCreater<OrderForRes> {
             Files.write(Paths.get(fileName), xstream.toXML(orderForResList).getBytes());
             log.info("file created : " + fileName);
         } catch (IOException e) {
-            log.error("problem with creating file" + fileName + " : "  + e);
+            log.error("problem with creating file" + fileName + " : " + e);
         }
 
 

@@ -1,8 +1,8 @@
 package routes.parsers;
 
-import routes.models.Url;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import routes.models.Url;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,7 +15,7 @@ public class URLPareser {
     private List<String> urls;
 
 
-    public URLPareser()   {
+    public URLPareser() {
 
         JsonReader reader;
         List<Url> items;
@@ -31,7 +31,6 @@ public class URLPareser {
         } catch (FileNotFoundException e) {
             System.out.println("problem with file::" + e);
         }
-
 
 
     }

@@ -17,6 +17,7 @@ import java.util.List;
 
 public abstract class XMLGetter<T extends BaseModel> {
 
+    protected static final Logger log = Logger.getLogger(XMLGetter.class);
     protected File inputFile;
     protected DocumentBuilderFactory dbFactory;
     protected DocumentBuilder dBuilder;
@@ -24,9 +25,7 @@ public abstract class XMLGetter<T extends BaseModel> {
     protected NodeList nList;
     protected String nameCollection;
     protected List<T> items = new ArrayList<>();
-
-    protected static final Logger log = Logger.getLogger(XMLGetter.class);
-
+    protected List<String> attr;
     public XMLGetter(String XMLURL) {
 
         inputFile = new File(XMLURL); //(XMLURL);
@@ -42,11 +41,10 @@ public abstract class XMLGetter<T extends BaseModel> {
         } catch (SAXException ignored) {
 
         } catch (ParserConfigurationException e) {
-           log.warn("problem with parse or adress file" + e);
+            log.warn("problem with parse or adress file" + e);
 
-        } catch (FileNotFoundException e)
-        {
-           log.warn("file not found");
+        } catch (FileNotFoundException e) {
+            log.warn("file not found");
 
         } catch (IOException e) {
 
@@ -54,5 +52,7 @@ public abstract class XMLGetter<T extends BaseModel> {
 
         }
     }
+
+    public abstract void setProperties(String nameCollection, List<String> attr);
 
 }

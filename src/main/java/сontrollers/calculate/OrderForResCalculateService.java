@@ -5,20 +5,19 @@ import DAO.OrdersDAOImp;
 import DAO.interfaces.IDAO;
 import models.aftercalculate.OrderForRes;
 import org.apache.log4j.Logger;
-import сontrollers.calculate.OrderForEmployeeCalculateService;
-import сontrollers.interfaces.calculate.ICalculateTargetService;
 import сontrollers.interfaces.calculate.ICalculateService;
+import сontrollers.interfaces.calculate.ICalculateTargetService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderForResCalculateService implements ICalculateService<IDAO> , ICalculateTargetService<OrderForRes> {
+public class OrderForResCalculateService implements ICalculateService<IDAO>, ICalculateTargetService<OrderForRes> {
 
 
+    private static final Logger log = Logger.getLogger(OrderForResCalculateService.class);
     private ItemOfMenuDAOImp itemOfMenuDAOImp;
     private OrdersDAOImp ordersDAOImp;
     private List<OrderForRes> orderForResList;
-    private static final Logger log = Logger.getLogger(OrderForResCalculateService.class);
 
     @Override
     public void setDAO(IDAO... dao) {
@@ -43,13 +42,13 @@ public class OrderForResCalculateService implements ICalculateService<IDAO> , IC
             );
             orderForRes.setPrice(orderForRes.getPrice() + " руб");
             orderForResList.add(orderForRes);
-            if(orderForResList.size() == 0) {
+            if (orderForResList.size() == 0) {
                 log.warn("item size equals 0, something go wrong");
 
             }
-            });
+        });
 
-            log.info("Calculate succes");
+        log.info("Calculate succes");
         return orderForResList;
     }
 }

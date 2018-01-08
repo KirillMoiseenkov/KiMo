@@ -14,15 +14,6 @@ public class Order extends BaseModel {
         products = new ArrayList<>();
     }
 
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setProducts(List<String> products) {
-        this.products = products;
-    }
-
     public void addToProducts(String product) {
         products.add(product);
     }
@@ -35,8 +26,16 @@ public class Order extends BaseModel {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public List<String> getProducts() {
         return products;
+    }
+
+    public void setProducts(List<String> products) {
+        this.products = products;
     }
 
     @Override

@@ -6,22 +6,38 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class XMLOredersGetter extends XMLGetter<Order> {
 
     private static final Logger log = Logger.getLogger(XMLOredersGetter.class);
+    private String nameCollection = "employee";
+    private List<String> attr;
 
 
     public XMLOredersGetter(String XMLURL) {
         super(XMLURL);
 
+        attr = new ArrayList<String>() {{
+            add("name");
+            add("item");
+        }};
 
     }
 
-    public List<Order> parse(String nameCollection, List<String> attr) {
-
+    @Override
+    public void setProperties(String nameCollection, List<String> attr) {
         this.nameCollection = nameCollection;
+        this.attr = attr;
+    }
+
+
+
+    public List<Order> parse() {
+
+//        this.nameCollection = nameCollection;
 
         nList = doc.getElementsByTagName(nameCollection);
 
@@ -45,7 +61,7 @@ public class XMLOredersGetter extends XMLGetter<Order> {
                 }
             }
             items.add(order);
-            if(items.size() == 0)
+            if (items.size() == 0)
                 log.warn("size of elements equals zero");
 
         }

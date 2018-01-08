@@ -4,7 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import models.BaseModel;
 
 @XStreamAlias("Orders")
-public class OrderForEmployee extends BaseModel{
+public class OrderForEmployee extends BaseModel {
 
     @XStreamAlias("Name")
     private String name;

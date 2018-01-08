@@ -6,8 +6,8 @@ import DAO.interfaces.IDAO;
 import models.aftercalculate.OrderForEmployee;
 import models.beforecalculate.Order;
 import org.apache.log4j.Logger;
-import сontrollers.interfaces.calculate.ICalculateTargetService;
 import сontrollers.interfaces.calculate.ICalculateService;
+import сontrollers.interfaces.calculate.ICalculateTargetService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,12 +16,11 @@ import java.util.Map;
 
 public class OrderForEmployeeCalculateService implements ICalculateService<IDAO>, ICalculateTargetService<OrderForEmployee> {
 
+    private static final Logger log = Logger.getLogger(OrderForEmployeeCalculateService.class);
     private OrdersDAOImp ordersDAOImp;
     private ItemOfMenuDAOImp itemOfMenuDAOImp;
     private Map<String, Integer> countProducts;
     private List<OrderForEmployee> orderForEmployeeList;
-    private static final Logger log = Logger.getLogger(OrderForEmployeeCalculateService.class);
-
 
     @Override
     public void setDAO(IDAO... dao) {
@@ -42,7 +41,7 @@ public class OrderForEmployeeCalculateService implements ICalculateService<IDAO>
                     {
                         countProducts.merge(product, 1, (last, iterator) -> last + iterator);
                     }
-                    );
+            );
         });
         countProducts.forEach((Name, count) -> {
             OrderForEmployee orderForEmployee = new OrderForEmployee();
@@ -51,7 +50,7 @@ public class OrderForEmployeeCalculateService implements ICalculateService<IDAO>
             orderForEmployee.setName(Name);
 
             orderForEmployeeList.add(orderForEmployee);
-            if(orderForEmployeeList.size() == 0){
+            if (orderForEmployeeList.size() == 0) {
                 log.warn("item size equals 0, something go wrong");
 
             }

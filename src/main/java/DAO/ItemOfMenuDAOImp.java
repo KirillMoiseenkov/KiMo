@@ -4,7 +4,6 @@ import DAO.interfaces.IDAOItemOfMenu;
 import models.beforecalculate.ItemOfMenu;
 import xmlparsers.getter.XMLMenuGetter;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,18 +12,16 @@ public class ItemOfMenuDAOImp implements IDAOItemOfMenu {
     private XMLMenuGetter xmlMenuGetter;
     private List<ItemOfMenu> items;
 
-    public ItemOfMenuDAOImp(String nameCollection, String URL, List<String> attr) {
-        xmlMenuGetter = new XMLMenuGetter(URL);
-        items = xmlMenuGetter.parse(nameCollection, attr);
+    @Override
+    public void setList(List<ItemOfMenu> items) {
+        this.items = items;
     }
 
-    public ItemOfMenuDAOImp(String nameCollection, String URL) {
+    @Override
+    public void setListByParsing(String URL) {
         xmlMenuGetter = new XMLMenuGetter(URL);
-        items = xmlMenuGetter.parse(nameCollection, new ArrayList<String>() {{
-            add("name");
-            add("weight");
-            add("price");
-        }});
+        items = xmlMenuGetter.parse();
+
     }
 
     @Override
