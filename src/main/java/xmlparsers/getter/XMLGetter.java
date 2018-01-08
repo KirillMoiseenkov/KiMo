@@ -26,6 +26,7 @@ public abstract class XMLGetter<T extends BaseModel> {
     protected String nameCollection;
     protected List<T> items = new ArrayList<>();
     protected List<String> attr;
+
     public XMLGetter(String XMLURL) {
 
         inputFile = new File(XMLURL); //(XMLURL);

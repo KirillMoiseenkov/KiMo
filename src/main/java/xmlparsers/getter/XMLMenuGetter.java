@@ -11,7 +11,7 @@ import java.util.List;
 public class XMLMenuGetter extends XMLGetter<ItemOfMenu> {
 
     private static final Logger log = Logger.getLogger(XMLMenuGetter.class);
-    private  String nameCollection = "menu";
+    private String nameCollection = "menu";
     //private List<String> attr;
 
     public XMLMenuGetter(String XMLURL) {

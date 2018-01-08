@@ -34,7 +34,6 @@ public class XMLOredersGetter extends XMLGetter<Order> {
     }
 
 
-
     public List<Order> parse() {
 
 //        this.nameCollection = nameCollection;
